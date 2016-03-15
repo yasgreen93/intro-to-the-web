@@ -6,8 +6,5 @@ get '/' do
 end
 
 get '/cat' do
-  "<div style='border: 3px dashed red'>
-    <a href='http://procatinator.com/'>
-    <img src='http://bit.ly/1eze8aE'></a>
-  </div>"
+  erb(:index)
 end

@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'sinatra/base'
 
 class Battle < Sinatra::Base

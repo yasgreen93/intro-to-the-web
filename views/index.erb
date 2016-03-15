@@ -1,6 +1,11 @@
-<% if @name %>
 <h1> My name is <%= @name %> </h1>
+<% if !@name %>
+<form action="/named-cat">
+    <input type="text" name="name" />
+    <input type="submit" value="Submit" />
+</form>
 <% end %>
+
 <div style='border: 3px dashed red'>
   <a href='http://procatinator.com/'>
   <img src='http://bit.ly/1eze8aE'></a>

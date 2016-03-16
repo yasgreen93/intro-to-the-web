@@ -1,2 +1,6 @@
-<div><%= @player_1 %>: 100 HP</div>
-<div><%= @player_2 %>:0</div>
+<div><%= @p1_name %>: 100 HP</div>
+<div><%= @p2_name %>:0</div>
+
+<form action='/attack' method='get'>
+  <input type='submit' value='Attack!' />
+</form>

@@ -11,6 +11,6 @@ feature "Reduce hitpoints" do
   scenario "Reduce player 2s hit points" do
     sign_in_and_play
     click_button "Attack!"
-    expect(page).to have_content("HP: 25")
+    expect(page).to have_content("25 hitpoints")
   end
 end

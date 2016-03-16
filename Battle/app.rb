@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require './lib/player.rb'
+require './lib/game.rb'
 
 require 'sinatra/base'
 
@@ -7,7 +8,6 @@ require 'sinatra/base'
 class Battle < Sinatra::Base
 
   enable :sessions
-
 
   get '/' do
     'Hello Battle!'
@@ -27,9 +27,10 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
+    @game = Game.new
     @player1 = $player1
     @player2 = $player2
-    @player1.attack(@player2)
+    @game.attack(@player2)
     erb(:attack)
   end
 

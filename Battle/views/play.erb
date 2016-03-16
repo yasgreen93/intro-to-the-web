@@ -1,9 +1,9 @@
-<div style="text-align: center; font-size: 50px">
-  <div style="font-family:verdana; color: green"><%= @player1 %></div>
+<div style="text-align: center; font-size: 30px">
+  <div style="font-family:verdana; color: green"><%= @player1.name %> HP: <%= @player1.hit_points %></div>
     <h1 style="color: red; font-family: arial; font-size: 30px">vs</h1>
-    <div style="font-family:Comic Sans MS; color:blue"> <%= @player2 %> HP: 20</div>
+    <div style="font-family:Comic Sans MS; color:blue"> <%= @player2.name %> HP: <%= @player2.hit_points %></div>
 </div>
 
-<form action="/attack">
-  <input type="submit" value="Attack!">
+<form action="/attack" method="post">
+  <input type="submit" value="Attack!🔫">
 </form>

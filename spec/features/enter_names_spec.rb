@@ -6,6 +6,7 @@ RSpec.feature 'entering user name' do
     click_button 'Submit!'
     expect(page).to have_content 'Bob'
   end
+  
   scenario 'submitting name 2' do
     visit '/'
     fill_in 'player_2' , with: "Frank"

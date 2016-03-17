@@ -8,11 +8,13 @@ class Game
     @player_two = player_2
     @player_attacked = @player_two
     @player_defended = @player_one
+    @game_active = true
   end
 
   def attack
     switch_turn
     attack_player
+    check_life(@player_defended)
   end
 
   private
@@ -27,6 +29,12 @@ class Game
 
   def attack_player
     @player_one_turn ? @player_two.hit : @player_one.hit
+  end
+
+  def check_life(player_defended)
+    if player_defended.current_hp < 1
+      @game_active = false
+    end
   end
 
 end

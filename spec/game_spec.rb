@@ -2,8 +2,8 @@ require 'game'
 
 describe Game do
   subject(:game) {described_class.new test_player_one , test_player_two}
-  let(:test_player_one) {double :player, hit: nil}
-  let(:test_player_two) {double :player, hit: nil}
+  let(:test_player_one) {double :player, hit: nil, current_hp: 1}
+  let(:test_player_two) {double :player, hit: nil, current_hp: 1}
 
   describe '#initialize' do
 
@@ -34,6 +34,11 @@ describe Game do
         game.attack
         expect(test_player_one).to receive(:hit)
         game.attack
+    end
+
+    it 'checks if the target is still alive' do
+      expect(test_player_two).to receive(:current_hp)
+      game.attack
     end
 
   end

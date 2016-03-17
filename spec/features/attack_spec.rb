@@ -35,5 +35,11 @@ RSpec.feature 'attacking opponent' do
     expect(page).to have_content "player_one now has 90hp"
   end
 
+  scenario 'player two loses' do
+    sign_in_and_play
+    19.times {click_button "Attack!"}
+    expect(page).to have_content "player_two loses!"
+  end
+
 
 end

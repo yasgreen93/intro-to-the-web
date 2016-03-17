@@ -21,7 +21,7 @@ describe Game do
 
     it 'calls the method hit on target player' do
       expect(test_player_two).to receive(:hit)
-      game.attack(test_player_two)
+      game.attack
     end
 
   end

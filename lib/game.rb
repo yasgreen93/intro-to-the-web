@@ -9,16 +9,18 @@ class Game
   end
 
   def attack
-    if @player_one_turn
-      @player_two.hit
-    else
-      @player_one.hit
-    end
+    attack_player
     switch_turn
   end
 
+  private
+
   def switch_turn
     @player_one_turn = !@player_one_turn
+  end
+
+  def attack_player
+    @player_one_turn ? @player_two.hit : @player_one.hit
   end
 
 end

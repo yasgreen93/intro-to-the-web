@@ -6,7 +6,7 @@ RSpec.feature 'attacking opponent' do
     expect(page).to have_content "You attacked player_two"
   end
 
-  scenario 'shows player 2 reduced hp' do
+  scenario 'first attack shows player one reduced hp' do
     sign_in_and_play
     click_button "Attack!"
     expect(page).to have_content "player_two now has 90hp"
@@ -22,6 +22,13 @@ RSpec.feature 'attacking opponent' do
     sign_in_and_play
     click_button "Attack!"
     expect(page).to have_button "Attack!"
+  end
+
+  scenario 'second attack shows player one reduced hp' do
+    sign_in_and_play
+    click_button "Attack!"
+    click_button "Attack!"
+    expect(page).to have_content "player_one now has 90hp"
   end
 
 end

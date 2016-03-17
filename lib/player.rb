@@ -13,10 +13,6 @@ class Player
     @hp
   end
 
-  def attack target
-    target.hit
-  end
-
   def hit
     @hp -= 10
   end

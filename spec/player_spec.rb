@@ -12,15 +12,6 @@ describe Player do
 
   end
 
-  describe '#attack' do
-
-    it 'calls the hit method on target player' do
-        expect(test_player).to receive(:hit)
-        test_player.attack test_player
-    end
-
-  end
-
   describe '#hit' do
 
     it 'reduces the attacked player hp' do

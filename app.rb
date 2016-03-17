@@ -20,7 +20,7 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    $player_1_object.attack $player_2_object
+    Game.new.attack $player_2_object
     @p2_name = $player_2_object.name
     @p2_hp = $player_2_object.current_hp
     erb(:attack)

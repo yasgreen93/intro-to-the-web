@@ -23,7 +23,12 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game.attack
+    # @game.computer? redirect('/attack') : erb attack
     @game.dead? ? redirect('/gameover') : erb(:attack)
+  end
+
+  get '/confirmation' do
+    erb(:confirmation)
   end
 
   get '/gameover' do

@@ -37,6 +37,11 @@ class Game
     end
   end
 
+  def single_player?
+    if @player_two == "Computer"
+
+  end
+
   def comp_turn?
     if single_player?
       @player_one_turn == false
@@ -57,10 +62,6 @@ class Game
 
   def attack_player
     @player_one_turn ? @player_two.hit : @player_one.hit
-  end
-
-  def single_player?
-    @player_two == "Computer"
   end
 
 end

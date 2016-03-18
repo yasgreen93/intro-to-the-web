@@ -1,5 +1,16 @@
 class Game
 
+
+  @game = nil
+
+  def self.change(player_1, player_2)
+    @game = Game.new(Player.new(player_1), Player.new(player_2))
+  end
+
+  def self.game
+    @game
+  end
+
   attr_reader :player_one, :player_two, :player_attacked, :player_defended, :game_active
 
   def initialize player_1, player_2

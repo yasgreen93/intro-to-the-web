@@ -1,4 +1,4 @@
-RSpec.feature 'attacking opponent' do
+RSpec.feature 'attack_spec: attacking opponent' do
 
 
 
@@ -9,9 +9,10 @@ RSpec.feature 'attacking opponent' do
   end
 
   scenario '2. first attack shows player two reduced hp' do
+    allow(Kernel).to receive(:rand).and_return(5)
     sign_in_and_play
     click_button "Attack!"
-    expect(page).to have_content "player_two now has 90hp"
+    expect(page).to have_content "player_two now has 45hp"
   end
 
 
@@ -29,15 +30,17 @@ RSpec.feature 'attacking opponent' do
   end
 
   scenario '5. second attack shows player one reduced hp' do
+    allow(Kernel).to receive(:rand).and_return(5)
     sign_in_and_play
     click_button "Attack!"
     click_button "Attack!"
-    expect(page).to have_content "player_one now has 90hp"
+    expect(page).to have_content "player_one now has 45hp"
   end
 
   scenario '6. player two loses' do
+    allow(Kernel).to receive(:rand).and_return(10)
     sign_in_and_play
-    19.times {click_button "Attack!"}
+    9.times {click_button "Attack!"}
     expect(page).to have_content "player_two loses!"
   end
 

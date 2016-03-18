@@ -2,7 +2,7 @@ class Player
 
   def initialize(name)
     @name = name
-    @hp = 100
+    @hp = 50
   end
 
   def name
@@ -14,7 +14,13 @@ class Player
   end
 
   def hit
-    @hp -= 10
+    @hp -= rand_num
+  end
+
+  private
+
+  def rand_num
+    Kernel.rand(10)
   end
 
 end

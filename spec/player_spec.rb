@@ -7,7 +7,7 @@ describe Player do
   describe '#current_hp' do
 
     it 'returns the current player hp' do
-      expect(test_player.current_hp).to eq 100
+      expect(test_player.current_hp).to eq 50
     end
 
   end
@@ -15,7 +15,8 @@ describe Player do
   describe '#hit' do
 
     it 'reduces the attacked player hp' do
-      expect{test_player.hit}.to change{test_player.current_hp}.by -10
+      allow(Kernel).to receive(:rand).and_return(5)
+      expect{test_player.hit}.to change{test_player.current_hp}.by -5
     end
 
   end

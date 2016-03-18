@@ -1,4 +1,4 @@
-RSpec.feature 'entering user name' do
+RSpec.feature 'enter_names_spec: entering user name' do
 
   scenario '1. submitting name 1' do
     sign_in_and_play

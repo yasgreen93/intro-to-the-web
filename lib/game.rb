@@ -13,7 +13,9 @@ class Game
 
   attr_reader :player_one, :player_two, :player_attacked, :player_defended, :game_active
 
-  def initialize player_1, player_2
+  COMPUTER = "Computer"
+
+  def initialize(player_1, player_2)
     @player_one_turn = false
     @player_one = player_1
     @player_two = player_2
@@ -35,6 +37,14 @@ class Game
     end
   end
 
+  def comp_turn?
+    if single_player?
+      @player_one_turn == false
+    else
+      false
+    end
+  end
+
   private
 
   def switch_turn
@@ -47,6 +57,10 @@ class Game
 
   def attack_player
     @player_one_turn ? @player_two.hit : @player_one.hit
+  end
+
+  def single_player?
+    @player_two == "Computer"
   end
 
 end

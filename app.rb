@@ -8,8 +8,16 @@ class Battle < Sinatra::Base
     erb(:index)
   end
 
+  get '/enter_name' do
+    erb(:enter_name)
+  end
+
+  get '/enter_names' do
+    erb(:enter_names)
+  end
+
   post '/names' do
-    Game.change(params[:player_1], params[:player_2])
+    Game.change(params[:player_1], params[:player_2] ||="Computer")
     redirect '/play'
   end
 
@@ -23,7 +31,7 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game.attack
-    # @game.computer? redirect('/attack') : erb attack
+    @game.comp_turn? ? redirect('/confirmation') : erb(:attack)
     @game.dead? ? redirect('/gameover') : erb(:attack)
   end
 

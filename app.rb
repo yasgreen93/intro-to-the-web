@@ -21,7 +21,11 @@ class Battle < Sinatra::Base
   get '/attack' do
     @game = $game
     @game.attack
-    erb(:attack)
+    @game.dead? ? redirect('/gameover') : erb(:attack)
+  end
+
+  get '/gameover' do
+    erb(:gameover)
   end
 
   # start the server if ruby file executed directly

@@ -1,6 +1,6 @@
 class Game
 
-  attr_reader :player_one , :player_two , :player_attacked , :player_defended
+  attr_reader :player_one, :player_two, :player_attacked, :player_defended, :game_active
 
   def initialize player_1, player_2
     @player_one_turn = false
@@ -14,7 +14,14 @@ class Game
   def attack
     switch_turn
     attack_player
-    check_life(@player_defended)
+  end
+
+  def dead?
+    if @player_one.current_hp < 1 || @player_two.current_hp < 1
+      true
+    else
+      false
+    end
   end
 
   private
@@ -29,12 +36,6 @@ class Game
 
   def attack_player
     @player_one_turn ? @player_two.hit : @player_one.hit
-  end
-
-  def check_life(player_defended)
-    if player_defended.current_hp < 1
-      @game_active = false
-    end
   end
 
 end

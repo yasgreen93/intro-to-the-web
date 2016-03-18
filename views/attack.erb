@@ -1,9 +1,4 @@
-<!-- <div><%= @game.player_attacked.name %> attacked <%= @game.player_defended.name %>.</div> -->
-
-<!-- <div><%= @game.player_one.name %> now has <%= @game.player_one.current_hp %>hp.</div> -->
-<!-- <div><%= @game.player_two.name %> now has <%= @game.player_two.current_hp %>hp.</div> -->
-
-<div><%= @game.player_attacked.name %>'s turn to attack!</div>
+<h3><%= @game.player_attacked.name %>'s turn to attack!</h3>
 
 <form action='/confirmation' method='get'>
   <input type='submit' value='Attack!'>

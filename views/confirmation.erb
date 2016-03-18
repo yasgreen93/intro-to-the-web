@@ -1,7 +1,11 @@
-<div><%= @game.player_attacked.name %> attacked <%= @game.player_defended.name %>.</div>
+<h2><%= @game.player_attacked.name %> attacked <%= @game.player_defended.name %>.</h2>
 
-<div><%= @game.player_one.name %> now has <%= @game.player_one.current_hp %>hp.</div>
-<div><%= @game.player_two.name %> now has <%= @game.player_two.current_hp %>hp.</div>
+<h3><%= @game.player_one.name %> now has <%= @game.player_one.current_hp %>hp.</h3>
+<progress max="<%=100%>" value="<%= @game.player_one.current_hp %>"></progress>
+</br>
+<h3><%= @game.player_two.name %> now has <%= @game.player_two.current_hp %>hp.</h3>
+<progress max="<%=100%>" value="<%= @game.player_two.current_hp %>"></progress>
+</br>
 
 <form action='/attack' method ='get'>
   <input type='submit' value='Continue!'>
